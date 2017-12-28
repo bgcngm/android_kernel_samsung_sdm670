@@ -400,6 +400,22 @@ enum mbhc_hs_pullup_iref {
 	I_3P0_UA,
 };
 
+enum mbhc_hs_pullup_iref_v2 {
+	HS_PULLUP_I_DEFAULT = -1,
+	HS_PULLUP_I_3P0_UA = 0,
+	HS_PULLUP_I_2P25_UA,
+	HS_PULLUP_I_1P5_UA,
+	HS_PULLUP_I_0P75_UA,
+	HS_PULLUP_I_1P125_UA = 0x05,
+	HS_PULLUP_I_0P375_UA = 0x07,
+	HS_PULLUP_I_2P0_UA,
+	HS_PULLUP_I_1P0_UA = 0x0A,
+	HS_PULLUP_I_0P5_UA,
+	HS_PULLUP_I_0P25_UA = 0x0F,
+	HS_PULLUP_I_0P125_UA = 0x17,
+	HS_PULLUP_I_OFF,
+};
+
 enum mbhc_moisture_rref {
 	R_OFF,
 	R_24_KOHM,
@@ -496,6 +512,7 @@ struct wcd_mbhc_cb {
 	void (*update_anc_state)(struct snd_soc_codec *codec,
 				 bool enable, int anc_num);
 	bool (*is_anc_on)(struct wcd_mbhc *mbhc);
+	void (*hph_pull_up_control_v2)(struct snd_soc_codec *, int);
 };
 
 struct wcd_mbhc_fn {
