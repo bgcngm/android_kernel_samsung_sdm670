@@ -2033,6 +2033,10 @@ struct hdd_context {
 
 	qdf_workqueue_t *adapter_ops_wq;
 	struct hdd_adapter_ops_history adapter_ops_history;
+#ifdef SEC_CONFIG_WLAN_BEACON_CHECK
+	qdf_mc_timer_t skip_bmiss_set_timer;
+	bool bmiss_set_last;
+#endif /* SEC_CONFIG_WLAN_BEACON_CHECK */
 };
 
 /**
@@ -2106,6 +2110,10 @@ struct hdd_channel_info {
 /*
  * Function declarations and documentation
  */
+
+#ifdef SEC_CONFIG_PSM_SYSFS
+int wlan_hdd_sec_get_psm(void);
+#endif /* SEC_CONFIG_PSM_SYSFS */
 
 /**
  * wlan_hdd_history_get_next_index() - get next index to store the history
