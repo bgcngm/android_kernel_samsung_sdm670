@@ -2980,6 +2980,7 @@ int adm_close(int port_id, int perf_mode, int copp_idx)
 
 	int ret = 0, port_idx;
 	int copp_id = RESET_COPP_ID;
+	int idx = ADM_MCH_MAP_IDX_PLAYBACK;
 
 	pr_debug("%s: port_id=0x%x perf_mode: %d copp_idx: %d\n", __func__,
 		 port_id, perf_mode, copp_idx);
@@ -3105,6 +3106,9 @@ int adm_close(int port_id, int perf_mode, int copp_idx)
 		pr_debug("%s: remove adm device from rtac\n", __func__);
 		rtac_remove_adm_device(port_id, copp_id);
 	}
+	if (afe_get_port_type(port_id) == MSM_AFE_PORT_TYPE_TX)
+		idx = ADM_MCH_MAP_IDX_REC;
+	multi_ch_maps[idx].set_channel_map = false;
 	return 0;
 }
 

@@ -18,6 +18,7 @@ obj-$(CONFIG_SND_SOC_MACHINE_MSM8998) += snd-soc-msm8998.o
 # for SDM670 sound card driver
 snd-soc-sdm670-objs := sdm660-common.o sdm660-internal.o sdm660-external.o sdm660-ext-dai-links.o
 obj-$(CONFIG_SND_SOC_SDM670) += snd-soc-sdm670.o
+obj-$(CONFIG_SEC_GTS4LV_PROJECT) += sec_wcd_sysfs_cb.o
 
 # for SDM845 sound card driver
 snd-soc-sdm845-objs := sdm845.o

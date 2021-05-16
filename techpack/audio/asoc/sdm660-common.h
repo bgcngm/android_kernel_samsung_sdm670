@@ -118,6 +118,15 @@ struct msm_asoc_mach_data {
 	struct mutex cdc_int_mclk0_mutex;
 	struct delayed_work disable_int_mclk0_work;
 	struct afe_clk_set digital_cdc_core_clk;
+#ifdef CONFIG_SAMSUNG_JACK
+	uint32_t amux_channel;
+	uint32_t moisture_channel;
+#endif /* CONFIG_SAMSUNG_JACK */
+	int dmic_ldo_en;
+	int fm_lna_en;
+#ifdef CONFIG_SND_SOC_WCD_MBHC_USB_ANALOG
+	int gnd_sel_gpio;
+#endif /* CONFIG_SND_SOC_WCD_MBHC_USB_ANALOG */
 };
 
 int msm_common_be_hw_params_fixup(struct snd_soc_pcm_runtime *rtd,

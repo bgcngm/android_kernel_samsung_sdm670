@@ -6,6 +6,7 @@ obj-$(CONFIG_MSM_QDSP6_SSR) += audio_ssr.o
 obj-$(CONFIG_MSM_QDSP6_PDR) += audio_pdr.o
 obj-$(CONFIG_MSM_QDSP6_NOTIFIER) += audio_notifier.o
 obj-$(CONFIG_MSM_ULTRASOUND) += usf.o usfcdev.o q6usm.o
+obj-$(CONFIG_SEC_SND_ADAPTATION) += q6audio_adaptation.o
 
 ifeq ($(CONFIG_ARCH_SDM845), y)
 obj-$(CONFIG_MSM_AVTIMER) += avtimer.o

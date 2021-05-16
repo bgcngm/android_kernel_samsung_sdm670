@@ -618,7 +618,8 @@ static int __init audio_notifier_init(void)
 	/* Do not return error since PDR enablement is not critical */
 	return 0;
 }
-module_init(audio_notifier_init);
+//module_init(audio_notifier_init);
+fs_initcall(audio_notifier_init);
 
 static int __init audio_notifier_late_init(void)
 {
